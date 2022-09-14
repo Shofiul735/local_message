@@ -24,3 +24,5 @@ $string['manage_title'] = 'Student profile manage';
 $string['manage_url']   = '/local/student/manage.php';
 $string['add_student_url'] = '/local/student/addStudent.php';
 $string['add_student_title'] = 'Add student';
+$string['add_student_form'] = '/local/student/classes/forms/addStudentForm.php';
+$string['cancelled_form_text'] = 'You cancelled the form!';
