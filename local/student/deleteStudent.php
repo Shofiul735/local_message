@@ -20,4 +20,12 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * */
 
-require_once(__DIR__ . get_string('config_file', 'local_student'));
+require_once(__DIR__ . '/../../config.php');
+
+$PAGE->set_url(new moodle_url(get_string('delete_student_url', 'local_student')));
+$PAGE->set_context(\context_system::instance());
+$PAGE->set_title(get_string('delete_title', 'local_student'));
+
+echo $OUTPUT->header();
+
+echo $OUTPUT->footer();

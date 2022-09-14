@@ -30,6 +30,7 @@ $PAGE->set_title(get_string('manage_title', 'local_student'));
 $student = (object)[
     'add_url' => new moodle_url(get_string('add_student_url', 'local_student')),
     'update_url' => new moodle_url(get_string('update_student_url', 'local_student')),
+    'delete_url' => new moodle_url(get_string('delete_student_url', 'local_student')),
     'student' => [
         [
             'id' => 1,
