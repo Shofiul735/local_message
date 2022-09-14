@@ -26,3 +26,6 @@ $string['add_student_url'] = '/local/student/addStudent.php';
 $string['add_student_title'] = 'Add student';
 $string['add_student_form'] = '/local/student/classes/forms/addStudentForm.php';
 $string['cancelled_form_text'] = 'You cancelled the form!';
+$string['update_student_form'] = '/local/student/classes/forms/updateStudentForm.php';
+$string['update_student_url'] = '/local/student/updateStudentInfo.php';
+$string['update_student_title'] = 'Update student info';
