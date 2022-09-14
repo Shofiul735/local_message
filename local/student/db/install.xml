@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/message/db" VERSION="20130407" COMMENT="XMLDB file for local student plugin"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+    <TABLES>
+        <TABLE NAME="local_student">
+                    <FIELDS>
+                        <FIELD NAME="id" TYPE="int" SEQUENCE="true" NOTNULL="true"/>
+                        <FIELD NAME="name" TYPE="char" LENGTH="50" NOTNULL="true" />
+                        <FIELD NAME="age" TYPE="int" NOTNULL="true" />
+                        <FIELD NAME="class" TYPE="int" DEFAULT="1" NOTNULL="true" />
+                        <FIELD NAME="phone" TYPE="text" LENGTH="11" NOTNULL="false" />
+                        <FIELD NAME="parent_name" TYPE="text" LENGTH="50" NOTNULL="true" />
+                        <FIELD NAME="parent_phone" TYPE="text" LENGTH="11" NOTNULL="true" />
+                    </FIELDS>
+                    <KEYS>
+                        <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+                    </KEYS>
+                </TABLE>
+    </TABLES>
+</XMLDB>
