@@ -21,11 +21,29 @@
  */
 
 require_once(__DIR__ . '/../../config.php');
+require_once($CFG->dirroot . get_string('update_student_form', 'local_student'));
 
 $PAGE->set_url(new moodle_url(get_string('update_student_url', 'local_student')));
 $PAGE->set_context(\context_system::instance());
 $PAGE->set_title(get_string('update_student_title', 'local_student'));
 
+$data = new stdClass();
+$data->name = "Md. Shofiul Islam";
+$data->age = 24;
+$data->class = 15;
+$data->phone = "018373489343";
+$data->parentname = "Zekali";
+$data->parentphone = "0193089394";
+
+$updateFormform = new updateStudentForm($data);
+
+//Form processing and displaying is done here
+if ($updateFormform->is_cancelled()) {
+    redirect($CFG->wwwroot . get_string('manage_url', 'local_student'), get_string('cancelled_form_text', 'local_student'));
+} else if ($fromform = $updateFormform->get_data()) {
+}
+
 echo $OUTPUT->header();
 echo "<h1 class='text-center text-primary'>Update Student Information</h1>";
+$updateFormform->display();
 echo $OUTPUT->footer();
