@@ -27,6 +27,30 @@ $PAGE->set_url(new moodle_url(get_string('manage_url', 'local_student')));
 $PAGE->set_context(\context_system::instance());
 $PAGE->set_title(get_string('manage_title', 'local_student'));
 
+$student = (object)[
+    'add_url' => new moodle_url('/local/student/addStudent.php'),
+    'student' => [
+        [
+            'id' => 1,
+            'name' => 'Md. Rakib',
+            'age' => 24,
+            'class' => 15,
+            'phone' => '0182983898',
+            'parentname' => 'Abdklj',
+            'parentphone' => '0189387389',
+        ],
+        [
+            'id' => 2,
+            'name' => 'Md. Shofiul Islam',
+            'age' => 24,
+            'class' => 15,
+            'phone' => '0182983898',
+            'parentname' => 'Abdulj',
+            'parentphone' => '0189387389',
+        ]
+    ]
+];
+
 echo $OUTPUT->header();
-echo "<h1> Hello </h1>";
+echo $OUTPUT->render_from_template('local_student/manage', $student);
 echo $OUTPUT->footer();

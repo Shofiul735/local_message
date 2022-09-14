@@ -22,3 +22,5 @@
  */
 $string['manage_title'] = 'Student profile manage';
 $string['manage_url']   = '/local/student/manage.php';
+$string['add_student_url'] = '/local/student/addStudent.php';
+$string['add_student_title'] = 'Add student';
