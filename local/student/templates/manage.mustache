@@ -17,3 +17,19 @@
     {
     }
 }}
+
+<h1>Hello World</h1>
+
+<ul class="list-group">
+  {{#student}}
+  <li class="list-group-item">
+    <div class="row">
+      <span class="col-6"> {{ id }} {{ name }} </span>
+      <span class="col-6">
+        <a href="#" class="btn btn-primary mr-1">Edit</a>
+        <a href="#" class="btn btn-danger mr-1">Delete</a>
+      </span>
+    </div>
+  </li>
+  {{/student}}
+</ul>
