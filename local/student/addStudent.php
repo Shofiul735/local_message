@@ -12,7 +12,7 @@ $addForm = new addStudentForm();
 
 //Form processing and displaying is done here
 if ($addForm->is_cancelled()) {
-    redirect($CFG->wwwroot . '/local/student/manage.php', get_string('cancelled_form_text', 'local_student'));
+    redirect($CFG->wwwroot . get_string('manage_url', 'local_student'), get_string('cancelled_form_text', 'local_student'));
 } else if ($fromform = $addForm->get_data()) {
 }
 
