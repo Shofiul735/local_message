@@ -22,37 +22,21 @@
 
 require_once(__DIR__ . '/../../config.php');
 
+global $DB;
 
 $PAGE->set_url(new moodle_url(get_string('manage_url', 'local_student')));
 $PAGE->set_context(\context_system::instance());
 $PAGE->set_title(get_string('manage_title', 'local_student'));
 
-$student = (object)[
+$students = $DB->get_records('local_student');
+$students = array_values($students);
+$data = (object)[
     'add_url' => new moodle_url(get_string('add_student_url', 'local_student')),
     'update_url' => new moodle_url(get_string('update_student_url', 'local_student')),
     'delete_url' => new moodle_url(get_string('delete_student_url', 'local_student')),
-    'student' => [
-        [
-            'id' => 1,
-            'name' => 'Md. Rakib',
-            'age' => 24,
-            'class' => 15,
-            'phone' => '0182983898',
-            'parentname' => 'Abdklj',
-            'parentphone' => '0189387389',
-        ],
-        [
-            'id' => 2,
-            'name' => 'Md. Shofiul Islam',
-            'age' => 24,
-            'class' => 15,
-            'phone' => '0182983898',
-            'parentname' => 'Abdulj',
-            'parentphone' => '0189387389',
-        ]
-    ]
+    'student' => $students,
 ];
 
 echo $OUTPUT->header();
-echo $OUTPUT->render_from_template('local_student/manage', $student);
+echo $OUTPUT->render_from_template('local_student/manage', $data);
 echo $OUTPUT->footer();
