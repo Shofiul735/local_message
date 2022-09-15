@@ -34,3 +34,5 @@ $string['delete_student_url'] = '/local/student/deleteStudent.php';
 $string['delete_title'] = 'Delete student information';
 $string['success_insertion_text'] = 'Student added successfully!';
 $string['update_message'] = 'Student information updated successfully!';
+$string['delete_message'] = 'Deletion is successful!';
+$string['delete_error_message'] = 'Deletion is failed!, ID does not exist';
