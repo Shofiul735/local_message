@@ -13,7 +13,7 @@ class addStudentForm extends moodleform
         $mform->addElement('text', 'age', 'Student Age'); // Add elements to your form
         $mform->setType('age', PARAM_INT);                   //Set type of element
         // $mform->setDefault('messagetext', get_string('enter_message', 'local_message'));        //Default value
-        $mform->addElement('number', 'class', 'Student class:');
+        $mform->addElement('text', 'class', 'Student class:');
         $mform->setType('class', PARAM_INT);
         $mform->setDefault('class', 1);
         $mform->addElement(
