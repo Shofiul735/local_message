@@ -33,3 +33,4 @@ $string['update_student_form'] = '/local/student/classes/forms/updateStudentForm
 $string['delete_student_url'] = '/local/student/deleteStudent.php';
 $string['delete_title'] = 'Delete student information';
 $string['success_insertion_text'] = 'Student added successfully!';
+$string['update_message'] = 'Student information updated successfully!';

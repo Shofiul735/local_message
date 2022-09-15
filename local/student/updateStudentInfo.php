@@ -22,18 +22,19 @@
 
 require_once(__DIR__ . '/../../config.php');
 require_once($CFG->dirroot . get_string('update_student_form', 'local_student'));
+session_start();
+
+global $DB;
 
 $PAGE->set_url(new moodle_url(get_string('update_student_url', 'local_student')));
 $PAGE->set_context(\context_system::instance());
 $PAGE->set_title(get_string('update_student_title', 'local_student'));
 
-$data = new stdClass();
-$data->name = "Md. Shofiul Islam";
-$data->age = 24;
-$data->class = 15;
-$data->phone = "018373489343";
-$data->parentname = "Zekali";
-$data->parentphone = "0193089394";
+if (isset($_GET['id'])) {
+    $_SESSION['id'] = intval($_GET['id']);
+}
+$data = $DB->get_record('local_student', ['id' => $_SESSION['id']]);
+
 
 $updateFormform = new updateStudentForm($data);
 
@@ -41,6 +42,18 @@ $updateFormform = new updateStudentForm($data);
 if ($updateFormform->is_cancelled()) {
     redirect($CFG->wwwroot . get_string('manage_url', 'local_student'), get_string('cancelled_form_text', 'local_student'));
 } else if ($fromform = $updateFormform->get_data()) {
+    $data = new stdClass();
+
+    $data->id          = $_SESSION['id'];
+    $data->name        = $fromform->name;
+    $data->age         = $fromform->age;
+    $data->phone       = $fromform->phone;
+    $data->class       = intval($fromform->class);
+    $data->parentname  = $fromform->parentname;
+    $data->parentphone = $fromform->parentphone;
+    $DB->update_record('local_student', $data);
+    session_destroy();
+    redirect($CFG->wwwroot . get_string('manage_url', 'local_student'), get_string('update_message', 'local_student'));
 }
 
 echo $OUTPUT->header();

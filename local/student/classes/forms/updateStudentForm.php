@@ -4,6 +4,7 @@ require_once("$CFG->libdir/formslib.php");
 class updateStudentForm extends moodleform
 {
     protected $data;
+    protected $disable = 1;
     public function __construct($data = null)
     {
         $this->data = $data;
@@ -14,7 +15,6 @@ class updateStudentForm extends moodleform
     public function definition()
     {
         $mform = $this->_form; // Don't forget the underscore!
-
         $mform->addElement('text', 'name', 'Student Name:');
         $mform->setType('name', PARAM_NOTAGS);
         $mform->setDefault('name', $this->data->name);
