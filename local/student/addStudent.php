@@ -23,6 +23,8 @@
 require_once(__DIR__ . '/../../config.php');
 require_once($CFG->dirroot . get_string('add_student_form', 'local_student'));
 
+global $DB;
+
 $PAGE->set_url(new moodle_url(get_string('add_student_url', 'local_student')));
 $PAGE->set_context(\context_system::instance());
 $PAGE->set_title(get_string('add_student_title', 'local_student'));
@@ -34,6 +36,20 @@ $addForm = new addStudentForm();
 if ($addForm->is_cancelled()) {
     redirect($CFG->wwwroot . get_string('manage_url', 'local_student'), get_string('cancelled_form_text', 'local_student'));
 } else if ($fromform = $addForm->get_data()) {
+    if ($fromform->age === 0) {
+        echo "<h3 class='text-center text-warning'> Failed! please enter a valid age</h3>";
+        die;
+    } else {
+        $data = new stdClass();
+
+        $data->name        = $fromform->name;
+        $data->age         = $fromform->age;
+        $data->phone       = $fromform->phone;
+        $data->parentname  = $fromform->parentname;
+        $data->parentphone = $fromform->parentphone;
+        $DB->insert_record('local_student', $data);
+        redirect($CFG->wwwroot . get_string('manage_url', 'local_student'), get_string('success_insertion_text', 'local_student'));
+    }
 }
 
 
