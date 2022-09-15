@@ -45,6 +45,7 @@ if ($addForm->is_cancelled()) {
         $data->name        = $fromform->name;
         $data->age         = $fromform->age;
         $data->phone       = $fromform->phone;
+        $data->class       = $fromform->class;
         $data->parentname  = $fromform->parentname;
         $data->parentphone = $fromform->parentphone;
         $DB->insert_record('local_student', $data);
