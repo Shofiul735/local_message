@@ -24,6 +24,8 @@ require_once(__DIR__ . '/../../config.php');
 
 global $DB;
 
+$CFG->cachejs = false;
+
 $PAGE->set_url(new moodle_url(get_string('manage_url', 'local_student')));
 $PAGE->set_context(\context_system::instance());
 $PAGE->set_title(get_string('manage_title', 'local_student'));
@@ -39,4 +41,7 @@ $data = (object)[
 
 echo $OUTPUT->header();
 echo $OUTPUT->render_from_template('local_student/manage', $data);
+
+$PAGE->requires->js_call_amd('local_student/main', 'init');
+
 echo $OUTPUT->footer();

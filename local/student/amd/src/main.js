@@ -1,3 +1,9 @@
-export const init = () => {
-  alert("Hello JS!");
-};
+define(["jquery"], function ($) {
+  return {
+    init: function () {
+      $("#timesimple").click(function () {
+        alert("Here!");
+      });
+    },
+  };
+});
